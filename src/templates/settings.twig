@@ -1,0 +1,76 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * DB Dump plugin for Craft CMS 3.x
+ *
+ * DB Dump Settings.twig
+ *
+ * @author    Swish Digital
+ * @copyright Copyright (c) 2019 Swish Digital
+ * @link      https://helloswish.com
+ * @package   DbDump
+ * @since     3.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("swishdigital\\dbdump\\assetbundles\\dbdump\\DbDumpAsset") %}
+
+{{ forms.textField({
+    label: "Key"|t,
+    id: 'key',
+    name: 'key',
+    instructions: "The key that will verify calls to the plugin. This must be set for calls to work. Use a good, random set of characters."|t,
+    value: settings.key,
+    autofocus: true,
+    errors: settings.getErrors('key')
+}) }}
+
+{{ forms.selectField({
+    label: "Assets Folder"|t,
+    id: "source",
+    name: "source",
+    instructions: "Select the assets folder to copy the backup into (works great with S3 or Google Cloud Storage sources for offsite backup)."|t,
+    options: craft.dbDump.getAllSources,
+    value: settings.source,
+    errors: settings.getErrors('source')
+}) }}
+
+{{ forms.textField({
+    label: "Number of Old Backups to Keep"|t,
+    id: 'revisions',
+    name: 'revisions',
+    instructions: "Set the maximum number of backups you would like to retain. Leave blank for unlimited. * Warning * This could fill your server up!"|t,
+    value: settings.revisions,
+    errors: settings.getErrors('revisions')
+}) }}
+
+
+{% set key = settings.key ? settings.key : '1234567890' %}
+
+<hr />
+
+<h2>Before You Begin</h2>
+
+<p>Open your config/general.php file and add<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>'extraAllowedFileExtensions' => 'sql'</code><br>to either your global settings array, or the array for the environment where you want to perform backups.</p>
+
+<h2>Examples</h2>
+
+<p>To run a backup, create a GET or a POST request to the Dump action URL.</p>
+
+<h3>Link to the Backup Function in a Twig Template:</h3>
+
+<code>&lt;a href=&quot;{{ "{{ actionUrl('/db-dump', { key: '" ~ key ~ "' }) }}"|raw }}&quot;&gt;Backup Now&lt;/a&gt;</code>
+
+<h3>Trigger a Backup by Visiting a URL in your Browser:</h3>
+
+<code>{{ siteUrl }}actions/db-dump?key={{ key }}</code>
+
+<h3>Setup a CRON Job to Trigger Backups on a Regular Interval:</h3>
+
+<p>Your server CRON syntax may vary. Try either of the examples below. <i>Ensure you've set (above) the maximum number of backups to keep, unless you potentially want many, many backups.</i></p>
+
+<code>wget {{ siteUrl }}actions/db-dump?key={{ key }} >/dev/null 2>&1</code><br>
+or<br>
+<code>curl -s -o /dev/null "{{ siteUrl }}actions/db-dump?key={{ key }}"</code>

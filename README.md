@@ -24,7 +24,7 @@ Visit the Plugin Store within your Craft project Control Panel. Search for "DB D
 
 2. Then tell Composer to load the plugin:
 
-        composer require helloswish/craft-db-dump
+        composer require swishdigital/db-dump
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for DB Dump.
 

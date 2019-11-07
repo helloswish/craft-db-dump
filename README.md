@@ -1,4 +1,4 @@
-# Dump plugin for Craft CMS 3.x
+# DB Dump plugin for Craft CMS 3.x
 
 A simple way to perform database backups in Craft CMS 3.
 
@@ -28,7 +28,7 @@ Visit the Plugin Store within your Craft project Control Panel. Search for "DB D
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for DB Dump.
 
-## Configuring Dump
+## Configuring DB Dump
 
 ### Before You Begin
 
@@ -42,7 +42,7 @@ to either your global settings array, or the array for the environment where you
 
 In the Craft Control Panel, navigate to Settings > Plugins > DB Dump > Settings. Set a key, choose an asset volume with which to store your backups, and set a number of old backups to keep.
 
-## Using Dump
+## Using DB Dump
 
 To run a backup, create a GET or a POST request to the DB Dump action URL.
 
@@ -63,7 +63,7 @@ or
 
 	curl -s -o /dev/null "http://aamgi.loc/actions/db-dump?key=12345678"
 
-## Dump Roadmap
+## DB Dump Roadmap
 
 Some things to do, and ideas for potential features:
 

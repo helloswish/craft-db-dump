@@ -34,7 +34,7 @@ class DefaultController extends Controller
      * @access protected
      */
 
-    protected $allowAnonymous = ['action-index'];
+    protected $allowAnonymous = true;
 
 
 

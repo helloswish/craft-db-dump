@@ -2,7 +2,7 @@
     "name": "swishdigital/db-dump",
     "description": "A simple way to perform database backups in Craft CMS 3.",
     "type": "craft-plugin",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "keywords": [
         "craft",
         "cms",

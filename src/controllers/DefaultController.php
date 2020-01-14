@@ -59,19 +59,21 @@ class DefaultController extends Controller
         //check if plugin is installed
         if (!$plugin = Craft::$app->plugins->getPlugin('db-dump')) 
         {
-            die('Could not find the plugin');
+            Craft::error('Could not load DB Dump plugin');
+            return false;
         }
 
         //get settings
         $settings = $plugin->getSettings();
 
         //get key
-        $key = Craft::$app->request->getParam('key');
+        $key = Craft::$app->request->getParam('key') ?? null;
 
         //verify key
-        if (!$settings->key or $key != $settings->key) 
+        if (!$key || !$settings->key || $key != $settings->key) 
         {
-            die('Unauthorized key');
+            Craft::error('Unauthorized key to initiate backup with DB Dump plugin');
+            return false;
         }
 
         //if a source is set
@@ -95,6 +97,9 @@ class DefaultController extends Controller
             $data = file_get_contents($url);
             file_put_contents($temp, $data);
 
+            //delete the originally saved backup from storage/backups
+            unlink($url);
+
             //get the backup folder volume object
             $volume = Craft::$app->getVolumes()->getVolumeById($settings->source) ?? null;
 
@@ -102,7 +107,7 @@ class DefaultController extends Controller
             {
             
                 //set the folder to save the backup
-                $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id);
+                $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id) ?? null;
 
                 if($folder)
                 {
@@ -128,7 +133,8 @@ class DefaultController extends Controller
         } 
         else
         {
-            die('No backup source was selected');
+            Craft::error('No backup source was selected for DB Dump plugin');
+            return;
         }
 
         //check if a redirect was posted
@@ -136,6 +142,7 @@ class DefaultController extends Controller
             $this->redirectToPostedUrl();
         }
 
+        Craft::info('DB Dump success! Removed ' . $filesDeleted . ' old backups');
         die('Success. Removed ' . $filesDeleted . ' old backups');
     }
 
@@ -164,7 +171,7 @@ class DefaultController extends Controller
             return 0;
         }
 
-        $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id);
+        $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id) ?? null;
 
         //if folder is null return
         if (!$folder) {

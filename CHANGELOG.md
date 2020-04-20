@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0.3 - 2020-04-20
+### Fixed
+- Updated namespace to comply with psr-4 autoloading standard
+- Also updated copyright information
+
 ## 3.0.2 - 2020-01-14
 ### Fixed
 - DB Dump now appropriately removes backup files from storage/backups folder

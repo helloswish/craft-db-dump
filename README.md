@@ -69,4 +69,4 @@ Some things to do, and ideas for potential features:
 
 * Nothing at this time
 
-Brought to you by [Swish Digital](https://helloswish.com)
+Brought to you by [Swish Digital](https://swishdigital.co)

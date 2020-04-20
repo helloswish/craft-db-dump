@@ -4,8 +4,8 @@
  *
  * A simple way to perform database backups in Craft CMS 3.
  *
- * @link      https://helloswish.com
- * @copyright Copyright (c) 2019 Swish Digital
+ * @link      https://swishdigital.co
+ * @copyright Copyright (c) 2019-2020 Swish Digital
  */
 
 namespace swishdigital\dbdump\assetbundles\dbdump;

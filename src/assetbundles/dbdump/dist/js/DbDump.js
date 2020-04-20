@@ -4,8 +4,8 @@
  * DB Dump JS
  *
  * @author    Swish Digital
- * @copyright Copyright (c) 2019 Swish Digital
- * @link      https://helloswish.com
+ * @copyright Copyright (c) 2019-2020 Swish Digital
+ * @link      https://swishdigital.co
  * @package   DbDump
  * @since     3.0.0
  */

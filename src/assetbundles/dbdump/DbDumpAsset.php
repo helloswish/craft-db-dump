@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2019 Swish Digital
  */
 
-namespace swishdigital\dbdump\assetbundles\DbDump;
+namespace swishdigital\dbdump\assetbundles\dbdump;
 
 use Craft;
 use craft\web\AssetBundle;

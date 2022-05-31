@@ -91,7 +91,8 @@ class DefaultController extends Controller
         {
         
             //create temporary file
-            $temp = tempnam('/tmp', 'DB_');
+            $tempFolder = Craft::getAlias('@storage').'/runtime/temp';
+            $temp = tempnam($tempFolder, 'DB_');
 
             //copy data from backup into the temporary file
             $data = file_get_contents($url);

@@ -2,13 +2,14 @@
     "name": "swishdigital/db-dump",
     "description": "A simple way to perform database backups in Craft CMS 3/4.",
     "type": "craft-plugin",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "keywords": [
         "craft",
         "cms",
         "craftcms",
         "craft-plugin",
-        "db dump"
+        "db dump",
+        "backup"
     ],
     "support": {
         "docs": "https://github.com/chadcrowell/db-dump/blob/master/README.md",
@@ -22,7 +23,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^4.0.0-alpha"
+        "craftcms/cms": "^4.0.0-alpha.1"
     },
     "autoload": {
         "psr-4": {
@@ -32,9 +33,10 @@
     "extra": {
         "name": "DB Dump",
         "handle": "db-dump",
+        "schemaVersion": "1.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/chadcrowell/db-dump/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/helloswish/craft-db-dump/master/CHANGELOG.md",
         "class": "swishdigital\\dbdump\\DbDump"
     }
 }

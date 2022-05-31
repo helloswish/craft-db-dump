@@ -34,11 +34,11 @@ class DefaultController extends Controller
      * @access protected
      */
 
-    protected $allowAnonymous = true;
+    protected array|int|bool $allowAnonymous = true;
 
 
 
-    public function init()
+    public function init(): void
     {
 
         parent::init();

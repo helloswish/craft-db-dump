@@ -1,12 +1,12 @@
-# DB Dump plugin for Craft CMS 3.x
+# DB Dump plugin for Craft CMS 3.x/4.x
 
-A simple way to perform database backups in Craft CMS 3.
+A simple way to perform database backups in Craft CMS 3/4.
 
-This Craft 3 version of Dump was ported from the original [Craft 2 version](https://github.com/putyourlightson/craft-dump) with permission by [Ben Croker](https://github.com/putyourlightson).
+This version of Dump was ported from the original [Craft 2 version](https://github.com/putyourlightson/craft-dump) with permission by [Ben Croker](https://github.com/putyourlightson).
 
 
 ## Requirements
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 3.0.0-beta.23 or later, or Craft CMS 4.0.0-alpha or later.
 
 ## Installation
 

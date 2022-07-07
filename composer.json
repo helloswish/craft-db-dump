@@ -2,7 +2,7 @@
     "name": "swishdigital/db-dump",
     "description": "A simple way to perform database backups in Craft CMS 3/4.",
     "type": "craft-plugin",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "keywords": [
         "craft",
         "cms",
@@ -33,7 +33,7 @@
     "extra": {
         "name": "DB Dump",
         "handle": "db-dump",
-        "schemaVersion": "1.0.0",
+        "schemaVersion": "3.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
         "changelogUrl": "https://raw.githubusercontent.com/helloswish/craft-db-dump/master/CHANGELOG.md",

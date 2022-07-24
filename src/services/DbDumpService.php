@@ -23,7 +23,7 @@ use craft\web\Controller;
  * @package   DbDump
  * @since     3.0.0
  */
-class DefaultController extends Component
+class DbDumpService extends Component
 {
 
     // Protected Properties

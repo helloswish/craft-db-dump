@@ -59,7 +59,7 @@ class DbDump extends Plugin
     public function init()
     {
 		if (Craft::$app->getRequest()->getIsConsoleRequest()) {
-            $this->controllerNamespace = 'db-dump\\console\\default';
+            $this->controllerNamespace = 'db-dump\\console\\backup';
         } else {
 			$this->controllerNamespace = 'db-dump\\default';
 		}

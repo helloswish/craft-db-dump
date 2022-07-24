@@ -13,8 +13,6 @@ namespace swishdigital\dbdump\console\controllers;
 use swishdigital\dbdump\DbDump;
 
 use Craft;
-use craft\elements\Asset;
-use craft\Request;
 use craft\console\Controller;
 
 /**
@@ -35,6 +33,6 @@ class BackupController extends Controller
     {
         echo "Running DB Dump backup...\n";
 		DbDump::$plugin->DbDumpService->backup();
-		echo "Finish DB Dump backup\n";
+		echo "Finished DB Dump backup\n";
     }
 }

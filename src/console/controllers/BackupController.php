@@ -22,7 +22,7 @@ use craft\console\Controller;
  * @package   DbDump
  * @since     3.0.0
  */
-class DefaultController extends Controller
+class BackupController extends Controller
 {
 
     // Public Methods

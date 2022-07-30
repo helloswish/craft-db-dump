@@ -67,14 +67,18 @@ class DbDumpService extends Component
         //get settings
         $settings = $plugin->getSettings();
 
-		//get key
-		$key = Craft::$app->request->getParam('key') ?? null;
-
-		//verify key
-		if (!$key || !$settings->key || $key != $settings->key)
+		//verify key if not console request
+		if(!Craft::$app->request->getIsConsoleRequest())
 		{
-			Craft::error('Unauthorized key to initiate backup with DB Dump plugin');
-			return false;
+			//get key
+			$key = Craft::$app->request->getParam('key') ?? null;
+
+			//verify key
+			if (!$key || !$settings->key || $key != $settings->key)
+			{
+				Craft::error('Unauthorized key to initiate backup with DB Dump plugin');
+				return false;
+			}
 		}
 
         //if a source is set

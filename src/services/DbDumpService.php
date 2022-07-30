@@ -115,9 +115,7 @@ class DbDumpService extends Component
                 //set the folder to save the backup
                 $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id) ?? null;
 
-				var_dump($folder);
-
-                if($folder)
+				if($folder)
                 {
 
                     // place the temporary file into designated asset source. User must add

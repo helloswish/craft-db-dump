@@ -59,7 +59,7 @@ class DbDump extends Plugin
     public function init()
     {
 		if (Craft::$app->getRequest()->getIsConsoleRequest()) {
-            $this->controllerNamespace = 'db-dump\\console\\controllers';
+            $this->controllerNamespace = 'swishdigital\dbdump\console\controllers';
 		}
 
         parent::init();

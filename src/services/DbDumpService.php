@@ -67,18 +67,14 @@ class DbDumpService extends Component
         //get settings
         $settings = $plugin->getSettings();
 
-		//verify key if not console request
-		if(!Craft::$app->request->getIsConsoleRequest())
-		{
-			//get key
-			$key = Craft::$app->request->getParam('key') ?? null;
+		//get key
+		$key = Craft::$app->request->getParam('key') ?? null;
 
-			//verify key
-			if (!$key || !$settings->key || $key != $settings->key)
-			{
-				Craft::error('Unauthorized key to initiate backup with DB Dump plugin');
-				return false;
-			}
+		//verify key
+		if (!$key || !$settings->key || $key != $settings->key)
+		{
+			Craft::error('Unauthorized key to initiate backup with DB Dump plugin');
+			return false;
 		}
 
         //if a source is set
@@ -109,6 +105,8 @@ class DbDumpService extends Component
             //get the backup folder volume object
             $volume = Craft::$app->getVolumes()->getVolumeById($settings->source) ?? null;
 
+			var_dump($volume);
+
             if($volume)
             {
 
@@ -136,6 +134,11 @@ class DbDumpService extends Component
                 }
 
             }
+			else
+			{
+				Craft::error('Unable to access backup source');
+            	return;
+			}
         }
         else
         {

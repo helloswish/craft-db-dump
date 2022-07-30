@@ -109,13 +109,13 @@ class DbDumpService extends Component
             //get the backup folder volume object
             $volume = Craft::$app->getVolumes()->getVolumeById($settings->source) ?? null;
 
-			var_dump($volume);
-
-            if($volume)
+			if($volume)
             {
 
                 //set the folder to save the backup
                 $folder = Craft::$app->assets->getRootFolderByVolumeId($volume->id) ?? null;
+
+				var_dump($folder);
 
                 if($folder)
                 {

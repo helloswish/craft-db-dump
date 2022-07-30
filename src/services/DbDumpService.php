@@ -148,8 +148,13 @@ class DbDumpService extends Component
             $this->redirectToPostedUrl();
         }
 
-        Craft::info('DB Dump success! Removed ' . $filesDeleted . ' old backups');
-        die('Success. Removed ' . $filesDeleted . ' old backups');
+		Craft::info('DB Dump success! Removed ' . $filesDeleted . ' old backups');
+
+		//don't die() if a console request
+		if(!Craft::$app->request->getIsConsoleRequest())
+		{
+			die('Success. Removed ' . $filesDeleted . ' old backups');
+		}
     }
 
     /**

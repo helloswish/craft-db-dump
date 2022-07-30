@@ -144,7 +144,7 @@ class DbDumpService extends Component
         }
 
         //check if a redirect was posted
-        if (Craft::$app->getRequest('redirect')) {
+		if(!Craft::$app->request->getIsConsoleRequest() && Craft::$app->getRequest('redirect')) {
             $this->redirectToPostedUrl();
         }
 

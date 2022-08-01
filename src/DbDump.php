@@ -12,6 +12,7 @@ namespace swishdigital\dbdump;
 
 use swishdigital\dbdump\variables\DbDumpVariable;
 use swishdigital\dbdump\models\Settings;
+use swishdigital\dbdump\services\DbDumpService;
 
 use Craft;
 use craft\base\Plugin;
@@ -57,8 +58,16 @@ class DbDump extends Plugin
      */
     public function init()
     {
+		if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerNamespace = 'swishdigital\dbdump\console\controllers';
+		}
+
         parent::init();
         self::$plugin = $this;
+
+		$this->setComponents([
+			'DbDumpService' => DbDumpService::class,
+		]);
 
         Event::on(
             UrlManager::class,

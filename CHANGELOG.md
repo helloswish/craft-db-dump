@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.1.0 - 2022-08-01
+### Added
+- Console command added via pull request
+
 ## 4.0.3 - 2022-07-07
 ### Updated
 - Updated schema version to avoid upgrade conflicts

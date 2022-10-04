@@ -149,9 +149,10 @@ class DbDumpService extends Component
         }
 
         //check if a redirect was posted
-		if(!Craft::$app->request->getIsConsoleRequest() && Craft::$app->getRequest('redirect')) {
-            $this->redirectToPostedUrl();
-        }
+        //removed unnecessary
+//		if(!Craft::$app->request->getIsConsoleRequest() && Craft::$app->getRequest('redirect')) {
+//            $this->redirectToPostedUrl();
+//        }
 
 		Craft::info('DB Dump success! Removed ' . $filesDeleted . ' old backups');
 

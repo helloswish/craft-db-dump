@@ -6,7 +6,7 @@ This version of Dump was ported from the original [Craft 2 version](https://gith
 
 
 ## Requirements
-This plugin requires Craft CMS 3.0.0-beta.23 or later, or Craft CMS 4.0.0-alpha or later.
+This plugin requires Craft CMS 4.0.0-alpha or later, or Craft CMS 5.x or later.
 
 ## Installation
 
